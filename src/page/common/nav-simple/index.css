@@ -1,0 +1,17 @@
+/*
+ * @Author: haobrother 
+ * @Date: 2019-07-28 11:33:56 
+ * @Last Modified by: haobrother
+ * @Last Modified time: 2019-07-28 11:44:37
+ */
+.nav-simple{
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+.nav-simple .logo{
+    font-size: 26px;
+    font-weight: bold;
+    color: #c60023;
+}
