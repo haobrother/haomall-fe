@@ -2,7 +2,7 @@
  * @Author: haobrother 
  * @Date: 2019-07-27 23:29:44 
  * @Last Modified by: haobrother
- * @Last Modified time: 2019-07-28 21:53:48
+ * @Last Modified time: 2019-07-30 21:31:05
  */
 /* css reset */
 *{
@@ -37,6 +37,23 @@ input[type='checkbox']{
 }
 .large .w{
     width: 1600px;
+}
+/* panel */
+.panel{
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.panel .panel-title{
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+.panel .panel-body{
+    padding: 10px;
+    overflow: hidden;
 }
 
 /* 全局通用样式 */

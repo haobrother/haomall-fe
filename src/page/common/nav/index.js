@@ -2,7 +2,7 @@
  * @Author: haobrother 
  * @Date: 2019-07-28 12:05:53 
  * @Last Modified by: haobrother
- * @Last Modified time: 2019-07-28 15:06:04
+ * @Last Modified time: 2019-07-30 16:20:26
  */
 'use strict';
 require('./index.css');
@@ -26,7 +26,7 @@ var nav = {
         });
         // 注册点击事件
         $('.js-register').click(function(){
-            window.location.href = './register.html';
+            window.location.href = './user-register.html';
         });
         // 退出点击事件
         $('.js-logout').click(function(){
@@ -42,7 +42,7 @@ var nav = {
         _user.checkLogin(function(res){
             $('.user.not-login').hide()
             .siblings('.user.login').show()
-            .find('username').text(res.username);
+            .find('.username').text(res.username);
         }, function(errMsg){
             // do nothing
         });
