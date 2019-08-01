@@ -2,7 +2,7 @@
  * @Author: haobrother
  * @Date: 2019-07-28 16:34:13
  * @Last Modified by: haobrother
- * @Last Modified time: 2019-07-28 17:07:40
+ * @Last Modified time: 2019-07-31 19:54:38
  */
 'use strict';
 require('./index.css');
@@ -12,6 +12,7 @@ var _mm = require('util/mm.js');
 var header = {
     // 初始化
     init : function(){
+        this.onLoad();
         this.bindEvent();
     },
     // 查询信息回填
