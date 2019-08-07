@@ -2,7 +2,7 @@
  * @Author: haobrother 
  * @Date: 2019-07-25 18:46:02 
  * @Last Modified by: haobrother
- * @Last Modified time: 2019-08-06 14:13:54
+ * @Last Modified time: 2019-08-06 22:09:49
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -15,6 +15,7 @@ var getHtmlConfig = function(name, title){
   return {
     template  : './src/view/' + name + '.html',
     filename  : 'view/' + name + '.html',
+    favicon   : './favicon.ico',
     title     : title,
     inject    : true,
     hash      : true,
@@ -40,10 +41,11 @@ var config = {
     'user-center-update': ['./src/page/user-center-update/index.js'],
     'user-pass-update': ['./src/page/user-pass-update/index.js'],
     'result': ['./src/page/result/index.js'],
+    'about': ['./src/page/about/index.js'],
   },
   output: {
-    path: './dist',
-    publicPath: '/dist',
+    path: __dirname + '/dist/',
+    publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.happymmall.com/mmall-fe/dist/',
     filename: 'js/[name].js'
   },
   externals: {
@@ -52,8 +54,15 @@ var config = {
   module: {
     loaders: [
         { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-        { test: /\.string$/, loader: 'html-loader' },
-        { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=../resource/[name].[ext]' }
+        { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
+        { 
+          test: /\.string$/, 
+          loader: 'html-loader',
+          query: {
+            minize: true,
+            removeAttributeQuotes: false
+          }
+        }
     ]
   },
   resolve: {
@@ -88,7 +97,8 @@ var config = {
     new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),
     new HtmlWebpackPlugin(getHtmlConfig('user-center-update', '修改个人信息')),
     new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
-    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
+    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+    new HtmlWebpackPlugin(getHtmlConfig('about', '关于'))
   ]
 };
 
