@@ -2,7 +2,7 @@
  * @Author: haobrother 
  * @Date: 2019-07-25 18:46:02 
  * @Last Modified by: haobrother
- * @Last Modified time: 2019-08-06 22:09:49
+ * @Last Modified time: 2019-08-23 11:26:20
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -45,7 +45,9 @@ var config = {
   },
   output: {
     path: __dirname + '/dist/',
-    publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.happymmall.com/mmall-fe/dist/',
+    // 对于npm run dev或npm run dev_win命令运行webpack-dev-server来说，需要指定本地路径才能正常进行本地调试
+    // publicPath: '/dist/',
+    publicPath: 'dev' === WEBPACK_ENV ? '/dist/' : '//s.haobrother.top/mmall-fe/dist/',
     filename: 'js/[name].js'
   },
   externals: {
@@ -99,11 +101,16 @@ var config = {
     new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
     new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
     new HtmlWebpackPlugin(getHtmlConfig('about', '关于'))
-  ]
+  ],
+  devServer: {
+    port: 8080,
+    inline: true,
+    publicPath: '/dist/'
+  }
 };
 
-if('dev' === WEBPACK_ENV){
-  config.entry.common.push('webpack-dev-server/client?http://localhost:8080/');
-}
+// if('dev' === WEBPACK_ENV){
+//   config.entry.common.push('webpack-dev-server/client?http://localhost:8080/');
+// }
 
 module.exports = config;
