@@ -2,7 +2,7 @@
  * @Author: haobrother 
  * @Date: 2019-07-28 18:00:34 
  * @Last Modified by: haobrother
- * @Last Modified time: 2019-07-31 11:57:20
+ * @Last Modified time: 2019-10-30 13:31:28
  */
 'use strict';
 require('./index.css');
@@ -16,7 +16,7 @@ var navSide = {
             {name : 'user-center', desc : '个人中心', href : './user-center.html'},
             {name : 'order-list', desc : '我的订单', href : './order-list.html'},
             {name : 'user-pass-update', desc : '修改密码', href : './user-pass-update.html'},
-            {name : 'about', desc : '关于MMall', href : './about.html'}
+            {name : 'about', desc : '关于HaoMall', href : './about.html'}
         ]
     },
     // 初始化
